@@ -1,6 +1,6 @@
 {
   "name": "@whoisyeshua-svelte/modal-custom-element",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "license": "MIT",
   "scripts": {
@@ -63,6 +63,11 @@
     "url": "https://github.com/whoisYeshua/svelte-modal-custom-element/issues"
   },
   "homepage": "https://github.com/whoisYeshua/svelte-modal-custom-element#readme",
+  "keywords": [
+    "svelte",
+    "custom-elements",
+    "modal"
+  ],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

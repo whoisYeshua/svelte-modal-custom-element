@@ -53,7 +53,7 @@
     --lightness: 0%;
 
     background: var(--svelte-modal-dialog-backdrop-bg, hsla(0 0% var(--lightness) / 30%));
-    backdrop-filter: blur(10px);
+    backdrop-filter: var(--svelte-modal-dialog-backdrop-filter, blur(10px));
   }
   @media (prefers-color-scheme: dark) {
     dialog::backdrop {
