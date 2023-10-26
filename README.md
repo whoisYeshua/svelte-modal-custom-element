@@ -92,7 +92,7 @@ new Modal({
 
 - Note that this esm build relies on your bundler (vite, rollup, webpack and etc), it comes without the `svelte` package built in, so your builder will have to add it. For this purpose we set `svelte@^4.0.0` to `peerDependencies`.
 
-### Vanila HTML / JS (through `<script>` tag)
+### Vanilla HTML / JS (through `<script>` tag)
 
 CDN URL - https://cdn.jsdelivr.net/npm/@whoisyeshua-svelte/modal-custom-element@1.0.3
 
