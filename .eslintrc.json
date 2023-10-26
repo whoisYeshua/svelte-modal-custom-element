@@ -1,0 +1,13 @@
+{
+  "root": true,
+  "extends": ["eslint:recommended", "plugin:svelte/recommended", "prettier"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2023
+  },
+  "env": {
+    "browser": true,
+    "es2023": true,
+    "node": true
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "name": "@whoisyeshua-svelte/modal-custom-element",
+  "version": "1.0.1",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "node esbuild",
+    "package": "svelte-package && node processPackageSvelte.js && npm run build && node concatenateTypeDefs.js && publint",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "lint:eslint": "eslint \"**/*.{js,svelte}\"",
+    "lint:prettier": "prettier \"**/*.{json,js,svelte}\" --check"
+  },
+  "peerDependencies": {
+    "svelte": "^4.0.0"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.4.6",
+    "@sveltejs/package": "^2.0.0",
+    "publint": "^0.1.9",
+    "esbuild": "^0.19.5",
+    "esbuild-svelte": "^0.8.0",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-svelte": "^2.34.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-svelte": "^3.0.3",
+    "vite": "^4.5.0"
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.html"
+  ],
+  "exports": {
+    "./svelte": {
+      "types": "./dist/svelte/index.d.ts",
+      "module": "./dist/svelte/index.js",
+      "import": "./dist/svelte/index.js",
+      "svelte": "./dist/svelte/index.js"
+    },
+    "./esm": {
+      "types": "./dist/esm/index.d.ts",
+      "module": "./dist/esm/index.js",
+      "import": "./dist/esm/index.js",
+      "default": "./dist/esm/index.js"
+    },
+    "./iife": {
+      "script": "./dist/iife/svelte-modal-custom-element.min.js"
+    }
+  },
+  "cdn": "dist/iife/svelte-modal-custom-element.min.js",
+  "unpkg": "dist/iife/svelte-modal-custom-element.min.js",
+  "engines": {
+    "node": ">=18.12",
+    "npm": ">= 9"
+  },
+  "author": "whoisYeshua",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whoisYeshua/svelte-modal-custom-element.git"
+  },
+  "bugs": {
+    "url": "https://github.com/whoisYeshua/svelte-modal-custom-element/issues"
+  },
+  "homepage": "https://github.com/whoisYeshua/svelte-modal-custom-element#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
