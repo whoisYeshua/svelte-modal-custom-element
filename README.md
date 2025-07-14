@@ -20,14 +20,14 @@ You can import and use it as normal svelte component (don\`t forget to add **`/s
 <script lang="ts">
   import { Modal } from '@whoisyeshua-svelte/modal-custom-element/svelte'
 
-  let open = false
+  let open = $state(false)
 </script>
 
-<Modal {open} on:close={() => open = false}>
+<Modal {open} onсlose={() => (open = false)}>
   <h2 style="margin: 0" slot="header">Header</h2>
   <p>Main content</p>
 </Modal>
-<button on:click={() => open = true}>Show</button>
+<button onclick={() => (open = true)}>Show</button>
 ```
 
 ### ESM projects
@@ -76,28 +76,31 @@ _`@whoisyeshua-svelte/modal-custom-element` under the hood define custom compone
 or like regular svelte component construcotr:
 
 ```ts
+import { mount } from 'svelte'
 import { Modal } from '@whoisyeshua-svelte/modal-custom-element/esm'
 
 let open = false
 
-new Modal({
+mount(Modal, {
   target: document.body,
   props: {
     // component props go here
     open,
-    onClose: () => (open = true)
+    onсlose: () => {
+      open = true
+    }
   }
 })
 ```
 
-- Note that this esm build relies on your bundler (vite, rollup, webpack and etc), it comes without the `svelte` package built in, so your builder will have to add it. For this purpose we set `svelte@^4.0.0` to `peerDependencies`.
+- Note that this esm build relies on your bundler (vite, rollup, webpack and etc), it comes without the `svelte` package built in, so your builder will have to add it. For this purpose we set `svelte@^5.35.0` to `peerDependencies`.
 
 ### Vanilla HTML / JS (through `<script>` tag)
 
-CDN URL - https://cdn.jsdelivr.net/npm/@whoisyeshua-svelte/modal-custom-element@1.0.3
+CDN URL - https://cdn.jsdelivr.net/npm/@whoisyeshua-svelte/modal-custom-element@2.0.0
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@whoisyeshua-svelte/modal-custom-element@1.0.3"></script>
+<script src="https://cdn.jsdelivr.net/npm/@whoisyeshua-svelte/modal-custom-element@2.0.0"></script>
 ```
 
 full code example:
@@ -115,7 +118,7 @@ full code example:
       display: none;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/@whoisyeshua-svelte/modal-custom-element@1.0.3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@whoisyeshua-svelte/modal-custom-element@2.0.0"></script>
   <script>
     const modal = document.querySelector('svelte-modal')
     const openModalBtn = document.querySelector('#open-modal')
@@ -149,15 +152,14 @@ svelte-modal {
 
 - `--svelte-modal-dialog-w`: Controls the width of the dialog. Default value is `clamp(20em, 33vw, 32em)`.
 - `--svelte-modal-dialog-br`: Controls the border radius of the dialog. Default value is `1em`.
-- `--svelte-modal-dialog-backdrop-bg`: Controls the background of the dialog's backdrop. Default value is `hsla(0 0% var(--lightness) / 30%)`.
+- `--svelte-modal-dialog-backdrop-bg`: Controls the background of the dialog's backdrop. Default value is `hsl(0 0% var(--lightness) / 30%)`.
 - `--svelte-modal-dialog-backdrop-filter`: Controls the filter of the dialog's backdrop. Default value is `blur(10px)`.
 - `--svelte-modal-dialog-padding`: Controls the padding inside the dialog's div. Default value is `1em`.
 - `--svelte-modal-header-container-gap`: Controls the gap between items in the header container. Default value is `1em`.
 - `--svelte-modal-button-w`: Controls the width of the close button. Default value is `32px`.
 - `--svelte-modal-button-h`: Controls the height of the close button. Default value is `32px`.
 - `--svelte-modal-button-br`: Controls the border radius of the close button. Default value is `100px`.
-- `--svelte-modal-button-hover-bg`: Controls the background color of the close button on hover. Default value is `hsla(0 0% var(--lightness) / 10%)`.
-- `--svelte-modal-button-active-bg`: Controls the background color of the close button on active. Default value is `hsla(0 0% var(--lightness) / 25%)`.
+- `--svelte-modal-button-bg`: Controls the background color of the close button. Default value is `hsl(0 0% var(--lightness) / 0%)`.
 
 Each custom property provides a way to customize a specific aspect of the `svelte-modal` component's appearance. By overriding these custom properties, you can tailor the modal's look to better fit your project's design requirements.
 

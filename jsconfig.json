@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "target": "ESNext",
     "module": "ESNext",
     /**
@@ -22,15 +22,12 @@
      * Disable this if you'd like to use dynamic types.
      */
     "checkJs": true,
-    "baseUrl": ".",
-    "paths": {
-      "@": ["src"],
-      "@/*": ["src/*"]
-    }
+    "baseUrl": "./src"
   },
   /**
    * Use global.d.ts instead of compilerOptions.types
    * to avoid limiting type declarations.
    */
-  "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte"]
+  "include": ["**/*.d.ts", "**/*.js", "**/*.svelte", "vite.config.ts", "vite.config.ts"],
+  "exclude": ["node_modules", "dist"]
 }

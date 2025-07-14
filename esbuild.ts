@@ -1,4 +1,3 @@
-// @ts-check
 import { build } from 'esbuild'
 import sveltePlugin from 'esbuild-svelte'
 
@@ -9,7 +8,7 @@ const svelte = sveltePlugin({
   }
 })
 
-/** @type  {import('esbuild').BuildOptions} */
+/** @type {import('esbuild').BuildOptions} */
 const commonBuildParams = {
   entryPoints: ['src/lib/index.js'],
   minify: true,

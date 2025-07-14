@@ -1,11 +1,21 @@
-import fs from 'fs/promises'
-import path from 'path'
+import fs from 'node:fs/promises'
+import path from 'node:path'
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname)
-
+/**
+ * Concatenates all Svelte TypeScript definition files into a single index.d.ts file and place in the `esm` directory.
+ *
+ * This function:
+ * 1. Reads all `svelte.d.ts` files from the `/dist/svelte` directory
+ * 2. Processes each file to replace 'export default class' with 'export class'
+ * 3. Concatenates all processed content with proper spacing
+ * 4. Writes the result to `/dist/esm/index.d.ts`
+ *
+ * The processing step ensures compatibility with ES modules by converting
+ * default class exports to named exports.
+ */
 async function concatenateTypeDefs() {
-  const sourceDir = path.join(__dirname, '/dist/svelte')
-  const targetFile = path.join(__dirname, '/dist/esm/index.d.ts')
+  const sourceDir = path.join(import.meta.dirname, '/dist/svelte')
+  const targetFile = path.join(import.meta.dirname, '/dist/esm/index.d.ts')
 
   try {
     // Ensure the target directory exists

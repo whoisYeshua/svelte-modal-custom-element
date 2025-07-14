@@ -1,31 +1,35 @@
 {
   "name": "@whoisyeshua-svelte/modal-custom-element",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "type": "module",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "node esbuild",
-    "package": "svelte-package && node processPackageSvelte.js && npm run build && node concatenateTypeDefs.js && publint",
-    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "build": "node esbuild.ts",
+    "package": "svelte-package && node processPackageSvelte.ts && npm run build && node concatenateTypeDefs.ts && publint",
+    "lint": "npm run lint:svelte && npm run lint:eslint && npm run lint:prettier",
     "lint:eslint": "eslint \"**/*.{js,svelte}\"",
-    "lint:prettier": "prettier \"**/*.{json,js,svelte}\" --check"
+    "lint:prettier": "prettier \"**/*.{json,js,svelte}\" --check",
+    "lint:svelte": "svelte-check --tsconfig ./jsconfig.json"
   },
   "peerDependencies": {
-    "svelte": "^4.0.0"
+    "svelte": "^5.35.0"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^2.4.6",
-    "@sveltejs/package": "^2.0.0",
-    "publint": "^0.1.9",
-    "esbuild": "^0.19.5",
-    "esbuild-svelte": "^0.8.0",
-    "eslint": "^8.52.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-svelte": "^2.34.0",
-    "prettier": "^3.0.3",
-    "prettier-plugin-svelte": "^3.0.3",
-    "vite": "^4.5.0"
+    "@eslint/js": "^9.31.0",
+    "@sveltejs/package": "^2.3.12",
+    "@sveltejs/vite-plugin-svelte": "^6.0.0",
+    "@types/node": "^24.0.13",
+    "esbuild": "^0.25.6",
+    "esbuild-svelte": "^0.9.3",
+    "eslint": "^9.31.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-svelte": "^3.10.1",
+    "prettier": "^3.6.2",
+    "prettier-plugin-svelte": "^3.4.0",
+    "publint": "^0.3.12",
+    "svelte-check": "^4.2.2",
+    "vite": "^7.0.4"
   },
   "files": [
     "dist",
@@ -51,8 +55,8 @@
   "cdn": "dist/iife/svelte-modal-custom-element.min.js",
   "unpkg": "dist/iife/svelte-modal-custom-element.min.js",
   "engines": {
-    "node": ">=18.12",
-    "npm": ">= 9"
+    "node": ">=20.19",
+    "npm": ">=10"
   },
   "author": "whoisYeshua",
   "repository": {
